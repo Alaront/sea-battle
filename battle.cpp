@@ -11,19 +11,19 @@ int pk_hp = 20;
 int yuo_hp = 20;   
 
 int instruction() {
-	cout << "Когда корабли расставлены, игроки по очереди производят «выстрелы», называя \n квадраты по их «координатам»: «К2», «К9» и т. д. вводить следует кириллицей и \n заглавными буквами. Если выстрел пришёлся в  клетку, не занятую ни одним \n кораблём противника, то в точке появиться знак определяющий пробитую точку. \n Право хода переходит к сопернику. Если выстрел пришёлся в клетку, где находится многопалубный  корабль (размером больше чем 1 клетка), то в точке \n появиться знак определяющий ранение коробля.  Стрелявший игрок получает \n право на ещё один выстрел. Игра ведётся до полной победы одного из игроков, то есть, пока не будут потоплены все корабли." << endl;
+	cout << "$)C,,,`,T,U,Q ,\,`,b,Q,R,],Z ,b,Q,c,c,d,Q,S,],V,_,m, ,Z,T,b,`,\,Z ,a,` ,`,i,V,b,V,U,Z ,a,b,`,Z,Y,S,`,U,q,d ?,S,m,c,d,b,V,],m?, ,_,Q,Y,m,S,Q,q \n ,\,S,Q,U,b,Q,d,m ,a,` ,Z,g ?,\,`,`,b,U,Z,_,Q,d,Q,^?: ?,,2?, ?,,9? ,Z ,d. ,U. ,S,S,`,U,Z,d,n ,c,],V,U,e,V,d ,\,Z,b,Z,],],Z,h,V,[ ,Z \n ,Y,Q,T,],Q,S,_,m,^,Z ,R,e,\,S,Q,^,Z. ,&,c,],Z ,S,m,c,d,b,V,] ,a,b,Z,j,W,],c,q ,S  ,\,],V,d,\,e, ,_,V ,Y,Q,_,q,d,e,p ,_,Z ,`,U,_,Z,^ \n ,\,`,b,Q,R,],W,^ ,a,b,`,d,Z,S,_,Z,\,Q, ,d,` ,S ,d,`,i,\,V ,a,`,q,S,Z,d,n,c,q ,Y,_,Q,\ ,`,a,b,V,U,V,],q,p,k,Z,[ ,a,b,`,R,Z,d,e,p ,d,`,i,\,e. \n ,1,b,Q,S,` ,g,`,U,Q ,a,V,b,V,g,`,U,Z,d ,\ ,c,`,a,V,b,_,Z,\,e. ,&,c,],Z ,S,m,c,d,b,V,] ,a,b,Z,j,W,],c,q ,S ,\,],V,d,\,e, ,T,U,V ,_,Q,g,`,U,Z,d,c,q ,^,_,`,T,`,a,Q,],e,R,_,m,[  ,\,`,b,Q,R,],n (,b,Q,Y,^,V,b,`,^ ,R,`,],n,j,V ,i,V,^ 1 ,\,],V,d,\,Q), ,d,` ,S ,d,`,i,\,V \n ,a,`,q,S,Z,d,n,c,q ,Y,_,Q,\ ,`,a,b,V,U,V,],q,p,k,Z,[ ,b,Q,_,V,_,Z,V ,\,`,b,`,R,],q.  ,3,d,b,V,],q,S,j,Z,[ ,Z,T,b,`,\ ,a,`,],e,i,Q,V,d \n ,a,b,Q,S,` ,_,Q ,V,k,W ,`,U,Z,_ ,S,m,c,d,b,V,]. ,*,T,b,Q ,S,V,U,W,d,c,q ,U,` ,a,`,],_,`,[ ,a,`,R,V,U,m ,`,U,_,`,T,` ,Z,Y ,Z,T,b,`,\,`,S, ,d,` ,V,c,d,n, ,a,`,\,Q ,_,V ,R,e,U,e,d ,a,`,d,`,a,],V,_,m ,S,c,V ,\,`,b,Q,R,],Z." << endl;
 
 	system("pause");
 
 	return  0;
 
-}
+} 
 
 
 int menu()
 {
 
-	//загрузка
+	//,Y,Q,T,b,e,Y,\,Q
 	for (int i = 10; i < 110; i += 10)
 	{
 		cout << "\n\n\n\n\n\n\n\n\n" << endl;
@@ -33,8 +33,8 @@ int menu()
 		}
 
 		cout << i << "%" << endl;
-		Sleep(300);//Задержка
-		system("cls");//чистка 
+		Sleep(300);//,),Q,U,V,b,X,\,Q
+		system("cls");//,i,Z,c,d,\,Q 
 
 	}
 
@@ -65,10 +65,10 @@ int menu()
 	return 0;
 }
 
-//генераци поля, 
+//,T,V,_,V,b,Q,h,Z ,a,`,],q, 
 int generator(string mass_1[12][12], string mass_2[12][12])
 {
-	//4 палубы
+	//4 ,a,Q,],e,R,m
 	for (int i = 4; i > 2; i++)
 	{
 		int rand_mass1_x = rand() % 10 + 1;
@@ -109,7 +109,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
-	//3 палубы, кста их двое 
+	//3 ,a,Q,],e,R,m, ,\,c,d,Q ,Z,g ,U,S,`,V 
 	for (int t = 0; t < 2; t++)
 	{
 		for (int i = 4; i > 2; i++)
@@ -155,7 +155,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 
 
 
-	//2 палубы, их 3
+	//2 ,a,Q,],e,R,m, ,Z,g 3
 	for (int t = 0; t < 3; t++)
 	{
 		for (int i = 4; i > 2; i++)
@@ -195,7 +195,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
-	//1 палуба, четверо
+	//1 ,a,Q,],e,R,Q, ,i,V,d,S,V,b,`
 
 	for (int t = 0; t < 4; t++)
 	{
@@ -221,7 +221,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 
 	//yuo
 
-	//4 палубы
+	//4 ,a,Q,],e,R,m
 	for (int i = 4; i > 2; i++)
 	{
 		int rand_mass1_x = rand() % 10 + 1;
@@ -262,7 +262,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
-	//3 палубы, кста их двое 
+	//3 ,a,Q,],e,R,m, ,\,c,d,Q ,Z,g ,U,S,`,V 
 	for (int t = 0; t < 2; t++)
 	{
 		for (int i = 4; i > 2; i++)
@@ -308,7 +308,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 
 
 
-	//2 палубы, их 3
+	//2 ,a,Q,],e,R,m, ,Z,g 3
 	for (int t = 0; t < 3; t++)
 	{
 		for (int i = 4; i > 2; i++)
@@ -348,7 +348,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
-	//1 палуба, четверо
+	//1 ,a,Q,],e,R,Q, ,i,V,d,S,V,b,`
 
 	for (int t = 0; t < 4; t++)
 	{
@@ -372,7 +372,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
-	cout << "Поле врага :" << endl;
+	cout << ",1,`,],V ,S,b,Q,T,Q :" << endl;
 	for (int i = 0; i < 11; i++)
 	{
 		for (int j = 0; j < 11; j++)
@@ -389,7 +389,7 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 	}
 
 
-	cout << "Ваше поле :" << endl;
+	cout << ",#,Q,j,V ,a,`,],V :" << endl;
 	for (int i = 0; i < 11; i++)
 	{
 		for (int j = 0; j < 11; j++)
@@ -415,28 +415,28 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 
 	for (int i = 2; i > 1; i++)
 	{
-		//на всякий случай 
+		//,_,Q ,S,c,q,\,Z,[ ,c,],e,i,Q,[ 
 		if (yuo_hp == 0)break;
 		if (pk_hp == 0)break;
 
-		//Координаты для стрельбы
-		cout << "По оси Х: "; cin >> axis_y_s;
-		cout << "По оси Y: "; cin >> axis_x_s;
+		//,,,`,`,b,U,Z,_,Q,d,m ,U,],q ,c,d,b,V,],n,R,m
+		cout << ",1,` ,`,c,Z ,7: "; cin >> axis_y_s;
+		cout << ",1,` ,`,c,Z Y: "; cin >> axis_x_s;
 
-		//для букв
+		//,U,],q ,R,e,\,S
 		for (int r = 2; r > 1; r++)
 		{
-			if ((axis_y_s == "А") || (axis_y_s == "Б") || (axis_y_s == "В") || (axis_y_s == "Г") || (axis_y_s == "Д") || (axis_y_s == "Е") || (axis_y_s == "Ж") || (axis_y_s == "З") || (axis_y_s == "И") || (axis_y_s == "К"))
+			if ((axis_y_s == ",!") || (axis_y_s == ","") || (axis_y_s == ",#") || (axis_y_s == ",$") || (axis_y_s == ",%") || (axis_y_s == ",&") || (axis_y_s == ",(") || (axis_y_s == ",)") || (axis_y_s == ",*") || (axis_y_s == ",,"))
 			{
 				r = 0;
 			}
 			else {
-				cout << "Ну что это такое..." << endl;
-				cout << "По оси Х: "; cin >> axis_y_s;
+				cout << ",/,e ,i,d,` ,o,d,` ,d,Q,\,`,V..." << endl;
+				cout << ",1,` ,`,c,Z ,7: "; cin >> axis_y_s;
 			}
 		}
 
-		//для чисел 
+		//,U,],q ,i,Z,c,V,] 
 		for (int r = 2; r > 1; r++)
 		{
 			if ((axis_x_s == "1") || (axis_x_s == "2") || (axis_x_s == "3") || (axis_x_s == "4") || (axis_x_s == "5") || (axis_x_s == "6") || (axis_x_s == "7") || (axis_x_s == "8") || (axis_x_s == "9") || (axis_x_s == "10"))
@@ -444,22 +444,22 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 				r = 0;
 			}
 			else {
-				cout << "Ну что это такое..." << endl;
-				cout << "По оси Y: "; cin >> axis_x_s;
+				cout << ",/,e ,i,d,` ,o,d,` ,d,Q,\,`,V..." << endl;
+				cout << ",1,` ,`,c,Z Y: "; cin >> axis_x_s;
 			}
 		}
 
-		//конвертируем
-		if (axis_y_s == "А") axis_y = 1;
-		if (axis_y_s == "Б") axis_y = 2;
-		if (axis_y_s == "В") axis_y = 3;
-		if (axis_y_s == "Г") axis_y = 4;
-		if (axis_y_s == "Д") axis_y = 5;
-		if (axis_y_s == "Е") axis_y = 6;
-		if (axis_y_s == "Ж") axis_y = 7;
-		if (axis_y_s == "З") axis_y = 8;
-		if (axis_y_s == "И") axis_y = 9;
-		if (axis_y_s == "К") axis_y = 10;
+		//,\,`,_,S,V,b,d,Z,b,e,V,^
+		if (axis_y_s == ",!") axis_y = 1;
+		if (axis_y_s == ","") axis_y = 2;
+		if (axis_y_s == ",#") axis_y = 3;
+		if (axis_y_s == ",$") axis_y = 4;
+		if (axis_y_s == ",%") axis_y = 5;
+		if (axis_y_s == ",&") axis_y = 6;
+		if (axis_y_s == ",(") axis_y = 7;
+		if (axis_y_s == ",)") axis_y = 8;
+		if (axis_y_s == ",*") axis_y = 9;
+		if (axis_y_s == ",,") axis_y = 10;
 
 		if (axis_x_s == "1") axis_x = 1;
 		if (axis_x_s == "2") axis_x = 2;
@@ -473,26 +473,26 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 		if (axis_x_s == "10") axis_x = 10;
 
 
-		//Проверка координат букв
+		//,1,b,`,S,V,b,\,Q ,\,`,`,b,U,Z,_,Q,d ,R,e,\,S
 		for (int j = 5; j > 3; j++)
 		{
 			if (mass_1[axis_x][axis_y] == " ** " || mass_1[axis_x][axis_y] == " X  " || axis_y == 0 || axis_x == 0)
 			{
-				cout << "Эти координты уже всё..." << endl;
-				cout << "Тупа огонь" << endl;
-				cout << "По оси Х: "; cin >> axis_y_s;
-				cout << "По оси Y: "; cin >> axis_x;
-				//конвертируем
-				if (axis_y_s == "А") axis_y = 1;
-				if (axis_y_s == "Б") axis_y = 2;
-				if (axis_y_s == "В") axis_y = 3;
-				if (axis_y_s == "Г") axis_y = 4;
-				if (axis_y_s == "Д") axis_y = 5;
-				if (axis_y_s == "Е") axis_y = 6;
-				if (axis_y_s == "Ж") axis_y = 7;
-				if (axis_y_s == "З") axis_y = 8;
-				if (axis_y_s == "И") axis_y = 9;
-				if (axis_y_s == "К") axis_y = 10;
+				cout << ",?,d,Z ,\,`,`,b,U,Z,_,d,m ,e,X,V ,S,c,W..." << endl;
+				cout << ",4,e,a,Q ,`,T,`,_,n" << endl;
+				cout << ",1,` ,`,c,Z ,7: "; cin >> axis_y_s;
+				cout << ",1,` ,`,c,Z Y: "; cin >> axis_x;
+				//,\,`,_,S,V,b,d,Z,b,e,V,^
+				if (axis_y_s == ",!") axis_y = 1;
+				if (axis_y_s == ","") axis_y = 2;
+				if (axis_y_s == ",#") axis_y = 3;
+				if (axis_y_s == ",$") axis_y = 4;
+				if (axis_y_s == ",%") axis_y = 5;
+				if (axis_y_s == ",&") axis_y = 6;
+				if (axis_y_s == ",(") axis_y = 7;
+				if (axis_y_s == ",)") axis_y = 8;
+				if (axis_y_s == ",*") axis_y = 9;
+				if (axis_y_s == ",,") axis_y = 10;
 
 			}
 			else {
@@ -506,44 +506,44 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			i = 0;
 		}
 		else {
-			//проверка на пробитые точки и координты
+			//,a,b,`,S,V,b,\,Q ,_,Q ,a,b,`,R,Z,d,m,V ,d,`,i,\,Z ,Z ,\,`,`,b,U,Z,_,d,m
 			mass_1[axis_x][axis_y] = " X  ";
 
-			if (mass_1[axis_x - 1][axis_y - 1] != " X  " && mass_1[axis_x - 1][axis_y - 1] != " [] " && mass_1[axis_x - 1][axis_y - 1] != " А " && mass_1[axis_x - 1][axis_y - 1] != "  Б " && mass_1[axis_x - 1][axis_y - 1] != "  В " && mass_1[axis_x - 1][axis_y - 1] != "  Г " && mass_1[axis_x - 1][axis_y - 1] != "  Д " && mass_1[axis_x - 1][axis_y - 1] != "  Е " && mass_1[axis_x - 1][axis_y - 1] != "  Ж " && mass_1[axis_x - 1][axis_y - 1] != "  З " && mass_1[axis_x - 1][axis_y - 1] != "  И " && mass_1[axis_x - 1][axis_y - 1] != "  К " && mass_1[axis_x - 1][axis_y - 1] != " || " && mass_1[axis_x - 1][axis_y - 1] != "  1 " && mass_1[axis_x - 1][axis_y - 1] != "  2 " && mass_1[axis_x - 1][axis_y - 1] != "  3 " && mass_1[axis_x - 1][axis_y - 1] != "  4 " && mass_1[axis_x - 1][axis_y - 1] != "  5 " && mass_1[axis_x - 1][axis_y - 1] != "  6 " && mass_1[axis_x - 1][axis_y - 1] != "  7 " && mass_1[axis_x - 1][axis_y - 1] != "  8 " && mass_1[axis_x - 1][axis_y - 1] != "  9 " && mass_1[axis_x - 1][axis_y - 1] != " 10 ")
+			if (mass_1[axis_x - 1][axis_y - 1] != " X  " && mass_1[axis_x - 1][axis_y - 1] != " [] " && mass_1[axis_x - 1][axis_y - 1] != " ,! " && mass_1[axis_x - 1][axis_y - 1] != "  ," " && mass_1[axis_x - 1][axis_y - 1] != "  ,# " && mass_1[axis_x - 1][axis_y - 1] != "  ,$ " && mass_1[axis_x - 1][axis_y - 1] != "  ,% " && mass_1[axis_x - 1][axis_y - 1] != "  ,& " && mass_1[axis_x - 1][axis_y - 1] != "  ,( " && mass_1[axis_x - 1][axis_y - 1] != "  ,) " && mass_1[axis_x - 1][axis_y - 1] != "  ,* " && mass_1[axis_x - 1][axis_y - 1] != "  ,, " && mass_1[axis_x - 1][axis_y - 1] != " || " && mass_1[axis_x - 1][axis_y - 1] != "  1 " && mass_1[axis_x - 1][axis_y - 1] != "  2 " && mass_1[axis_x - 1][axis_y - 1] != "  3 " && mass_1[axis_x - 1][axis_y - 1] != "  4 " && mass_1[axis_x - 1][axis_y - 1] != "  5 " && mass_1[axis_x - 1][axis_y - 1] != "  6 " && mass_1[axis_x - 1][axis_y - 1] != "  7 " && mass_1[axis_x - 1][axis_y - 1] != "  8 " && mass_1[axis_x - 1][axis_y - 1] != "  9 " && mass_1[axis_x - 1][axis_y - 1] != " 10 ")
 			{
 				mass_1[axis_x - 1][axis_y - 1] = " ** ";
 			}
 
-			if (mass_1[axis_x - 1][axis_y + 1] != " X  " && mass_1[axis_x - 1][axis_y + 1] != " [] " && mass_1[axis_x - 1][axis_y + 1] != " А " && mass_1[axis_x - 1][axis_y + 1] != "  Б " && mass_1[axis_x - 1][axis_y + 1] != "  В " && mass_1[axis_x - 1][axis_y + 1] != "  Г " && mass_1[axis_x - 1][axis_y + 1] != "  Д " && mass_1[axis_x - 1][axis_y + 1] != "  Е " && mass_1[axis_x - 1][axis_y + 1] != "  Ж " && mass_1[axis_x - 1][axis_y + 1] != "  З " && mass_1[axis_x - 1][axis_y + 1] != "  И " && mass_1[axis_x - 1][axis_y + 1] != "  К " && mass_1[axis_x - 1][axis_y + 1] != " || " && mass_1[axis_x - 1][axis_y + 1] != "  1 " && mass_1[axis_x - 1][axis_y + 1] != "  2 " && mass_1[axis_x - 1][axis_y + 1] != "  3 " && mass_1[axis_x - 1][axis_y + 1] != "  4 " && mass_1[axis_x - 1][axis_y + 1] != "  5 " && mass_1[axis_x - 1][axis_y + 1] != "  6 " && mass_1[axis_x - 1][axis_y + 1] != "  7 " && mass_1[axis_x - 1][axis_y + 1] != "  8 " && mass_1[axis_x - 1][axis_y + 1] != "  9 " && mass_1[axis_x - 1][axis_y + 1] != " 10 ")
+			if (mass_1[axis_x - 1][axis_y + 1] != " X  " && mass_1[axis_x - 1][axis_y + 1] != " [] " && mass_1[axis_x - 1][axis_y + 1] != " ,! " && mass_1[axis_x - 1][axis_y + 1] != "  ," " && mass_1[axis_x - 1][axis_y + 1] != "  ,# " && mass_1[axis_x - 1][axis_y + 1] != "  ,$ " && mass_1[axis_x - 1][axis_y + 1] != "  ,% " && mass_1[axis_x - 1][axis_y + 1] != "  ,& " && mass_1[axis_x - 1][axis_y + 1] != "  ,( " && mass_1[axis_x - 1][axis_y + 1] != "  ,) " && mass_1[axis_x - 1][axis_y + 1] != "  ,* " && mass_1[axis_x - 1][axis_y + 1] != "  ,, " && mass_1[axis_x - 1][axis_y + 1] != " || " && mass_1[axis_x - 1][axis_y + 1] != "  1 " && mass_1[axis_x - 1][axis_y + 1] != "  2 " && mass_1[axis_x - 1][axis_y + 1] != "  3 " && mass_1[axis_x - 1][axis_y + 1] != "  4 " && mass_1[axis_x - 1][axis_y + 1] != "  5 " && mass_1[axis_x - 1][axis_y + 1] != "  6 " && mass_1[axis_x - 1][axis_y + 1] != "  7 " && mass_1[axis_x - 1][axis_y + 1] != "  8 " && mass_1[axis_x - 1][axis_y + 1] != "  9 " && mass_1[axis_x - 1][axis_y + 1] != " 10 ")
 			{
 				mass_1[axis_x - 1][axis_y + 1] = " ** ";
 			}
 
-			if (mass_1[axis_x + 1][axis_y - 1] != " X  " && mass_1[axis_x + 1][axis_y - 1] != " [] " && mass_1[axis_x + 1][axis_y - 1] != " А " && mass_1[axis_x + 1][axis_y - 1] != "  Б " && mass_1[axis_x + 1][axis_y - 1] != "  В " && mass_1[axis_x + 1][axis_y - 1] != "  Г " && mass_1[axis_x + 1][axis_y - 1] != "  Д " && mass_1[axis_x + 1][axis_y - 1] != "  Е " && mass_1[axis_x + 1][axis_y - 1] != "  Ж " && mass_1[axis_x + 1][axis_y - 1] != "  З " && mass_1[axis_x + 1][axis_y - 1] != "  И " && mass_1[axis_x + 1][axis_y - 1] != "  К " && mass_1[axis_x + 1][axis_y - 1] != " || " && mass_1[axis_x + 1][axis_y - 1] != "  1 " && mass_1[axis_x + 1][axis_y - 1] != "  2 " && mass_1[axis_x + 1][axis_y - 1] != "  3 " && mass_1[axis_x + 1][axis_y - 1] != "  4 " && mass_1[axis_x + 1][axis_y - 1] != "  5 " && mass_1[axis_x + 1][axis_y - 1] != "  6 " && mass_1[axis_x + 1][axis_y - 1] != "  7 " && mass_1[axis_x + 1][axis_y - 1] != "  8 " && mass_1[axis_x + 1][axis_y - 1] != "  9 " && mass_1[axis_x + 1][axis_y - 1] != " 10 ")
+			if (mass_1[axis_x + 1][axis_y - 1] != " X  " && mass_1[axis_x + 1][axis_y - 1] != " [] " && mass_1[axis_x + 1][axis_y - 1] != " ,! " && mass_1[axis_x + 1][axis_y - 1] != "  ," " && mass_1[axis_x + 1][axis_y - 1] != "  ,# " && mass_1[axis_x + 1][axis_y - 1] != "  ,$ " && mass_1[axis_x + 1][axis_y - 1] != "  ,% " && mass_1[axis_x + 1][axis_y - 1] != "  ,& " && mass_1[axis_x + 1][axis_y - 1] != "  ,( " && mass_1[axis_x + 1][axis_y - 1] != "  ,) " && mass_1[axis_x + 1][axis_y - 1] != "  ,* " && mass_1[axis_x + 1][axis_y - 1] != "  ,, " && mass_1[axis_x + 1][axis_y - 1] != " || " && mass_1[axis_x + 1][axis_y - 1] != "  1 " && mass_1[axis_x + 1][axis_y - 1] != "  2 " && mass_1[axis_x + 1][axis_y - 1] != "  3 " && mass_1[axis_x + 1][axis_y - 1] != "  4 " && mass_1[axis_x + 1][axis_y - 1] != "  5 " && mass_1[axis_x + 1][axis_y - 1] != "  6 " && mass_1[axis_x + 1][axis_y - 1] != "  7 " && mass_1[axis_x + 1][axis_y - 1] != "  8 " && mass_1[axis_x + 1][axis_y - 1] != "  9 " && mass_1[axis_x + 1][axis_y - 1] != " 10 ")
 			{
 				mass_1[axis_x + 1][axis_y - 1] = " ** ";
 			}
 
-			if (mass_1[axis_x + 1][axis_y + 1] != " X  " && mass_1[axis_x + 1][axis_y + 1] != " [] " && mass_1[axis_x + 1][axis_y + 1] != " А " && mass_1[axis_x + 1][axis_y + 1] != "  Б " && mass_1[axis_x + 1][axis_y + 1] != "  В " && mass_1[axis_x + 1][axis_y + 1] != "  Г " && mass_1[axis_x + 1][axis_y + 1] != "  Д " && mass_1[axis_x + 1][axis_y + 1] != "  Е " && mass_1[axis_x + 1][axis_y + 1] != "  Ж " && mass_1[axis_x + 1][axis_y + 1] != "  З " && mass_1[axis_x + 1][axis_y + 1] != "  И " && mass_1[axis_x + 1][axis_y + 1] != "  К " && mass_1[axis_x + 1][axis_y + 1] != " || " && mass_1[axis_x + 1][axis_y + 1] != "  1 " && mass_1[axis_x + 1][axis_y + 1] != "  2 " && mass_1[axis_x + 1][axis_y + 1] != "  3 " && mass_1[axis_x + 1][axis_y + 1] != "  4 " && mass_1[axis_x + 1][axis_y + 1] != "  5 " && mass_1[axis_x + 1][axis_y + 1] != "  6 " && mass_1[axis_x + 1][axis_y + 1] != "  7 " && mass_1[axis_x + 1][axis_y + 1] != "  8 " && mass_1[axis_x + 1][axis_y + 1] != "  9 " && mass_1[axis_x + 1][axis_y + 1] != " 10 ")
+			if (mass_1[axis_x + 1][axis_y + 1] != " X  " && mass_1[axis_x + 1][axis_y + 1] != " [] " && mass_1[axis_x + 1][axis_y + 1] != " ,! " && mass_1[axis_x + 1][axis_y + 1] != "  ," " && mass_1[axis_x + 1][axis_y + 1] != "  ,# " && mass_1[axis_x + 1][axis_y + 1] != "  ,$ " && mass_1[axis_x + 1][axis_y + 1] != "  ,% " && mass_1[axis_x + 1][axis_y + 1] != "  ,& " && mass_1[axis_x + 1][axis_y + 1] != "  ,( " && mass_1[axis_x + 1][axis_y + 1] != "  ,) " && mass_1[axis_x + 1][axis_y + 1] != "  ,* " && mass_1[axis_x + 1][axis_y + 1] != "  ,, " && mass_1[axis_x + 1][axis_y + 1] != " || " && mass_1[axis_x + 1][axis_y + 1] != "  1 " && mass_1[axis_x + 1][axis_y + 1] != "  2 " && mass_1[axis_x + 1][axis_y + 1] != "  3 " && mass_1[axis_x + 1][axis_y + 1] != "  4 " && mass_1[axis_x + 1][axis_y + 1] != "  5 " && mass_1[axis_x + 1][axis_y + 1] != "  6 " && mass_1[axis_x + 1][axis_y + 1] != "  7 " && mass_1[axis_x + 1][axis_y + 1] != "  8 " && mass_1[axis_x + 1][axis_y + 1] != "  9 " && mass_1[axis_x + 1][axis_y + 1] != " 10 ")
 			{
 				mass_1[axis_x + 1][axis_y + 1] = " ** ";
 			}
 
-			//отнимем жизу у пк
+			//,`,d,_,Z,^,V,^ ,X,Z,Y,e ,e ,a,\
 			pk_hp--;
 		}
 
 		system("cls");
 
-		//уничтожение соседних клеток
-		//4 палубы горизонт
+		//,e,_,Z,i,d,`,X,V,_,Z,V ,c,`,c,V,U,_,Z,g ,\,],V,d,`,\
+		//4 ,a,Q,],e,R,m ,T,`,b,Z,Y,`,_,d
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
 			{
 				if ((mass_1[k][t] == " X  ") && (mass_1[k][t + 1] == " X  ") && (mass_1[k][t + 2] == " X  ") && (mass_1[k][t + 3] == " X  "))
 				{
-					//провeрека на наличие букв и цифр
+					//,a,b,`,Se,b,V,\,Q ,_,Q ,_,Q,],Z,i,Z,V ,R,e,\,S ,Z ,h,Z,f,b
 					if ((k + 1 != 0) && (t + 4 != 0))
 					{
 						mass_1[k][t + 4] = " ** ";
@@ -555,14 +555,14 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 				}
 			}
 		}
-		//4 палубы вертикаль
+		//4 ,a,Q,],e,R,m ,S,V,b,d,Z,\,Q,],n
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
 			{
 				if ((mass_1[k][t] == " X  ") && (mass_1[k + 1][t] == " X  ") && (mass_1[k + 2][t] == " X  ") && (mass_1[k + 3][t] == " X  "))
 				{
-					//провeрека на наличие букв и цифр
+					//,a,b,`,Se,b,V,\,Q ,_,Q ,_,Q,],Z,i,Z,V ,R,e,\,S ,Z ,h,Z,f,b
 					if ((k - 1 != 0) && (t != 0))
 					{
 						mass_1[k - 1][t] = " ** ";
@@ -575,7 +575,7 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			}
 		}
 
-		// 1 палуба
+		// 1 ,a,Q,],e,R,Q
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
@@ -605,8 +605,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			}
 		}
 
-		//ещё вывод поля
-		cout << "Поле врага :" << endl;
+		//,V,k,W ,S,m,S,`,U ,a,`,],q
+		cout << ",1,`,],V ,S,b,Q,T,Q :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -622,7 +622,7 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			cout << endl;
 		}
 
-		cout << "Ваше поле :" << endl;
+		cout << ",#,Q,j,V ,a,`,],V :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -658,7 +658,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 		axis_x_pk = rand() % 10 + 1;
 		axis_y_pk = rand() % 10 + 1;
 
-		//Проверка координат
+		//,1,b,`,S,V,b,\,Q ,\,`,`,b,U,Z,_,Q,d
 		for (int j = 5; j > 3; j++)
 		{
 			if (mass_2[axis_x_pk][axis_y_pk] == " ** " || mass_2[axis_x_pk][axis_y_pk] == " X  " || axis_y_pk == 0 || axis_x_pk == 0)
@@ -672,16 +672,16 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 
 		}
 
-		//логика стрельбы по соседним клеткам
-		int temp_shoot = 0;//будем решать куда стрелять
-		for (int k = 0; k < 11; k++)//С помощью циклов определяем пробитую точку
+		//,],`,T,Z,\,Q ,c,d,b,V,],n,R,m ,a,` ,c,`,c,V,U,_,Z,^ ,\,],V,d,\,Q,^
+		int temp_shoot = 0;//,R,e,U,V,^ ,b,V,j,Q,d,n ,\,e,U,Q ,c,d,b,V,],q,d,n
+		for (int k = 0; k < 11; k++)//,3 ,a,`,^,`,k,n,p ,h,Z,\,],`,S ,`,a,b,V,U,V,],q,V,^ ,a,b,`,R,Z,d,e,p ,d,`,i,\,e
 		{
 			for (int t = 0; t < 11; t++)
 			{
-				if (mass_2[k][t] == " X  ")//как только нашли пробитую точку, решаем как дальше стрелять 
+				if (mass_2[k][t] == " X  ")//,\,Q,\ ,d,`,],n,\,` ,_,Q,j,],Z ,a,b,`,R,Z,d,e,p ,d,`,i,\,e, ,b,V,j,Q,V,^ ,\,Q,\ ,U,Q,],n,j,V ,c,d,b,V,],q,d,n 
 				{
 
-					//проверка на случай если все точки вокруг корабля уже были проверены ПК 
+					//,a,b,`,S,V,b,\,Q ,_,Q ,c,],e,i,Q,[ ,V,c,],Z ,S,c,V ,d,`,i,\,Z ,S,`,\,b,e,T ,\,`,b,Q,R,],q ,e,X,V ,R,m,],Z ,a,b,`,S,V,b,V,_,m ,1,, 
 					if ((mass_2[k + 1][t] == " ** ") && (mass_2[k - 1][t] == " ** ") && (mass_2[k][t + 1] == " ** ") && mass_2[k][t - 1] == " ** ")
 					{
 						axis_x_pk = rand() % 10 + 1;
@@ -690,7 +690,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 					else {
 						temp_shoot = rand() % 4 + 1;
 
-						//если выпало число n выполниться соответствующее условие
+						//,V,c,],Z ,S,m,a,Q,],` ,i,Z,c,],` n ,S,m,a,`,],_,Z,d,n,c,q ,c,`,`,d,S,V,d,c,d,S,e,p,k,V,V ,e,c,],`,S,Z,V
 						if (temp_shoot == 1) { axis_x_pk = k; axis_y_pk = t + 1; }
 						if (temp_shoot == 2) { axis_x_pk = k + 1; axis_y_pk = t; }
 						if (temp_shoot == 3) { axis_x_pk = k; axis_y_pk = t - 1; }
@@ -701,7 +701,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			}
 		}
 
-		//Проверка координат
+		//,1,b,`,S,V,b,\,Q ,\,`,`,b,U,Z,_,Q,d
 		for (int j = 5; j > 3; j++)
 		{
 			if (mass_2[axis_x_pk][axis_y_pk] == " ** " || mass_2[axis_x_pk][axis_y_pk] == " X  " || axis_y_pk == 0 || axis_x_pk == 0)
@@ -721,41 +721,41 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 		}
 		else if (mass_2[axis_x_pk][axis_y_pk] == " [] ") {
 
-			//проверка на пробитые точки и координты
+			//,a,b,`,S,V,b,\,Q ,_,Q ,a,b,`,R,Z,d,m,V ,d,`,i,\,Z ,Z ,\,`,`,b,U,Z,_,d,m
 			mass_2[axis_x_pk][axis_y_pk] = " X  ";
 
 			yuo_hp--;
 
-			if (mass_2[axis_x_pk - 1][axis_y_pk - 1] != " X  " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " [] " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " А " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  Б " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  В " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  Г " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  Д " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  Е " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  Ж " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  З " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  И " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  К " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " || " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  1 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  2 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  3 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  4 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  5 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  6 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  7 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  8 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  9 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " 10 ")
+			if (mass_2[axis_x_pk - 1][axis_y_pk - 1] != " X  " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " [] " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " ,! " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ," " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,# " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,$ " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,% " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,& " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,( " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,) " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,* " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  ,, " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " || " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  1 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  2 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  3 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  4 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  5 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  6 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  7 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  8 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != "  9 " && mass_2[axis_x_pk - 1][axis_y_pk - 1] != " 10 ")
 			{
 				mass_2[axis_x_pk - 1][axis_y_pk - 1] = " ** ";
 			}
 
-			if (mass_1[axis_x_pk - 1][axis_y_pk + 1] != " X  " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " [] " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " А " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  Б " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  В " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  Г " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  Д " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  Е " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  Ж " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  З " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  И " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  К " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " || " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  1 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  2 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  3 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  4 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  5 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  6 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  7 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  8 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  9 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " 10 ")
+			if (mass_1[axis_x_pk - 1][axis_y_pk + 1] != " X  " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " [] " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " ,! " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ," " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,# " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,$ " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,% " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,& " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,( " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,) " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,* " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  ,, " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " || " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  1 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  2 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  3 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  4 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  5 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  6 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  7 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  8 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != "  9 " && mass_2[axis_x_pk - 1][axis_y_pk + 1] != " 10 ")
 			{
 				mass_2[axis_x_pk - 1][axis_y_pk + 1] = " ** ";
 			}
 
-			if (mass_2[axis_x_pk + 1][axis_y_pk - 1] != " X  " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " [] " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " А " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  Б " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  В " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  Г " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  Д " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  Е " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  Ж " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  З " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  И " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  К " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " || " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  1 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  2 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  3 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  4 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  5 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  6 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  7 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  8 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  9 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " 10 ")
+			if (mass_2[axis_x_pk + 1][axis_y_pk - 1] != " X  " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " [] " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " ,! " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ," " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,# " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,$ " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,% " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,& " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,( " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,) " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,* " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  ,, " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " || " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  1 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  2 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  3 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  4 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  5 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  6 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  7 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  8 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != "  9 " && mass_2[axis_x_pk + 1][axis_y_pk - 1] != " 10 ")
 			{
 				mass_2[axis_x_pk + 1][axis_y_pk - 1] = " ** ";
 			}
 
-			if (mass_2[axis_x_pk + 1][axis_y_pk + 1] != " X  " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " [] " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " А " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  Б " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  В " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  Г " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  Д " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  Е " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  Ж " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  З " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  И " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  К " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " || " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  1 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  2 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  3 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  4 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  5 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  6 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  7 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  8 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  9 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " 10 ")
+			if (mass_2[axis_x_pk + 1][axis_y_pk + 1] != " X  " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " [] " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " ,! " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ," " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,# " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,$ " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,% " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,& " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,( " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,) " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,* " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  ,, " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " || " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  1 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  2 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  3 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  4 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  5 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  6 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  7 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  8 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != "  9 " && mass_2[axis_x_pk + 1][axis_y_pk + 1] != " 10 ")
 			{
 				mass_2[axis_x_pk + 1][axis_y_pk + 1] = " ** ";
 			}
 		}
 
-		//уничтожение соседних клеток
-		//4 палубы горизонт
+		//,e,_,Z,i,d,`,X,V,_,Z,V ,c,`,c,V,U,_,Z,g ,\,],V,d,`,\
+		//4 ,a,Q,],e,R,m ,T,`,b,Z,Y,`,_,d
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
 			{
 				if ((mass_2[k][t] == " X  ") && (mass_2[k][t + 1] == " X  ") && (mass_2[k][t + 2] == " X  ") && (mass_2[k][t + 3] == " X  "))
 				{
-					//провeрека на наличие букв и цифр
+					//,a,b,`,Se,b,V,\,Q ,_,Q ,_,Q,],Z,i,Z,V ,R,e,\,S ,Z ,h,Z,f,b
 					if ((k + 1 != 0) && (t + 4 != 0))
 					{
 						mass_2[k][t + 4] = " ** ";
@@ -767,14 +767,14 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 				}
 			}
 		}
-		//4 палубы вертикаль
+		//4 ,a,Q,],e,R,m ,S,V,b,d,Z,\,Q,],n
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
 			{
 				if ((mass_2[k][t] == " X  ") && (mass_2[k + 1][t] == " X  ") && (mass_2[k + 2][t] == " X  ") && (mass_2[k + 3][t] == " X  "))
 				{
-					//провeрека на наличие букв и цифр
+					//,a,b,`,Se,b,V,\,Q ,_,Q ,_,Q,],Z,i,Z,V ,R,e,\,S ,Z ,h,Z,f,b
 					if ((k - 1 != 0) && (t != 0))
 					{
 						mass_2[k - 1][t] = " ** ";
@@ -787,7 +787,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			}
 		}
 
-		// 1 палуба
+		// 1 ,a,Q,],e,R,Q
 		for (int k = 0; k < 11; k++)
 		{
 			for (int t = 0; t < 11; t++)
@@ -818,10 +818,10 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 		}
 
 
-		system("cls");//чистка
+		system("cls");//,i,Z,c,d,\,Q
 
-		//ещё вывод поля
-		cout << "Поле врага :" << endl;
+		//,V,k,W ,S,m,S,`,U ,a,`,],q
+		cout << ",1,`,],V ,S,b,Q,T,Q :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -837,7 +837,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			cout << endl;
 		}
 
-		cout << "Ваше поле :" << endl;
+		cout << ",#,Q,j,V ,a,`,],V :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -871,15 +871,15 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	//если будет рекурсия вернуть значения на старте
+	//,V,c,],Z ,R,e,U,V,d ,b,V,\,e,b,c,Z,q ,S,V,b,_,e,d,n ,Y,_,Q,i,V,_,Z,q ,_,Q ,c,d,Q,b,d,V
 	pk_hp = 20;
 	yuo_hp = 20;
 	 
-	//меню игры
+	//,^,V,_,p ,Z,T,b,m
 	menu();
 
 	string choice = "";
-	cout << "\n\t\t Ваш выбор? ";
+	cout << "\n\t\t ,#,Q,j ,S,m,R,`,b? ";
 	cin >> choice;
 
 	while ("NULL") {
@@ -888,30 +888,30 @@ int main()
 			break;
 		}else if (choice == "2")
 		{
-			cout << "Из-за не хвати времени, сил, денег, еды.... Вообщем проект временно заморожен. Но мы надеемся на перезапуск после 2019 года. Спасибо за понимание";
+			cout << ",*,Y-,Y,Q ,_,V ,g,S,Q,d,Z ,S,b,V,^,V,_,Z, ,c,Z,], ,U,V,_,V,T, ,V,U,m.... ,#,`,`,R,k,V,^ ,a,b,`,V,\,d ,S,b,V,^,V,_,_,` ,Y,Q,^,`,b,`,X,V,_. ,/,` ,^,m ,_,Q,U,V,V,^,c,q ,_,Q ,a,V,b,V,Y,Q,a,e,c,\ ,a,`,c,],V 2019 ,T,`,U,Q. ,3,a,Q,c,Z,R,` ,Y,Q ,a,`,_,Z,^,Q,_,Z,V";
 			Sleep(5000);
 			break;
 		}
 		else {
-			cout << "\t\tДавайте по новой, ваш выбор? ";
+			cout << "\t\t,%,Q,S,Q,[,d,V ,a,` ,_,`,S,`,[, ,S,Q,j ,S,m,R,`,b? ";
 			cin >> choice;
 		}
 	}
 
 	if (choice == "1" || choice == "2") {
 
-		system("cls");//чистка
+		system("cls");//,i,Z,c,d,\,Q
 
-		//Sleep(5000);//Задержка
+		//Sleep(5000);//,),Q,U,V,b,X,\,Q
 
 		string you_name = " ";
-		cout << "Ваше имя адмирал? ";
+		cout << ",#,Q,j,V ,Z,^,q ,Q,U,^,Z,b,Q,]? ";
 		cin >> you_name; 
 
 		//vrag
 		 
 		string mass_1[12][12] = {
-			{" || ", " А ",  "  Б ", "  В ", "  Г ", "  Д ", "  Е ", "  Ж ", "  З ", "  И ", "  К "},
+			{" || ", " ,! ",  "  ," ", "  ,# ", "  ,$ ", "  ,% ", "  ,& ", "  ,( ", "  ,) ", "  ,* ", "  ,, "},
 			{"  1 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  2 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  3 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
@@ -926,7 +926,7 @@ int main()
 
 		//vashe
 		string mass_2[12][12] = {
-			{" || ", " А ",  "  Б ", "  В ", "  Г ", "  Д ", "  Е ", "  Ж ", "  З ", "  И ", "  К "},
+			{" || ", " ,! ",  "  ," ", "  ,# ", "  ,$ ", "  ,% ", "  ,& ", "  ,( ", "  ,) ", "  ,* ", "  ,, "},
 			{"  1 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  2 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ** "},
 			{"  3 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
@@ -939,15 +939,15 @@ int main()
 			{" 10 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ",  " ~~ ", " ~~ ", " ~~ "," ~~ "}
 		};
 
-		//функция на генерацию поля
+		//,f,e,_,\,h,Z,q ,_,Q ,T,V,_,V,b,Q,h,Z,p ,a,`,],q
 		generator(mass_1, mass_2);
 		int choice2 = 0;
 		string choice_S2 = ""; 
 
-		//а если поле не понравиться 
+		//,Q ,V,c,],Z ,a,`,],V ,_,V ,a,`,_,b,Q,S,Z,d,n,c,q 
 		for(int t = 4; t > 2; t++)
 		{
-			cout << "Как вам поле? \n Подходит или нет? \n 1 - Это был настоящий classic,я бы даже сказал pleasantly \n 2 - Давай по новой Миша, ВСЁ ПЛОХО" << endl;
+			cout << ",,,Q,\ ,S,Q,^ ,a,`,],V? \n ,1,`,U,g,`,U,Z,d ,Z,],Z ,_,V,d? \n 1 - ,?,d,` ,R,m,] ,_,Q,c,d,`,q,k,Z,[ classic,,q ,R,m ,U,Q,X,V ,c,\,Q,Y,Q,] pleasantly \n 2 - ,%,Q,S,Q,[ ,a,` ,_,`,S,`,[ ,.,Z,j,Q, ,#,3,' ,1,-,0,7,0" << endl;
 
 			cin >> choice_S2;
 
@@ -960,25 +960,25 @@ int main()
 				}else{
 					if (i >= 8)
 					{
-						cout << "Ясно, желаю автору закончить 3 класс \n Сударь " << you_name << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
+						cout << ",A,c,_,`, ,X,V,],Q,p ,Q,S,d,`,b,e ,Y,Q,\,`,_,i,Z,d,n 3 ,\,],Q,c,c \n ,3,e,U,Q,b,n " << you_name << ", ,d,Q,\,`,T,` ,S,Q,b,Z,Q,_,d,Q ,S,m,R,`,b,Q ,_,V,d. ,1,`,X,Q,],e,[,c,d,Q, ,a,`,U,e,^,Q,[,d,V ,c,_,`,S,Q." << endl;
 						cin >> choice_S2;
 					}
 					else {
-						cout << "Сударь " << you_name << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
+						cout << ",3,e,U,Q,b,n " << you_name << ", ,d,Q,\,`,T,` ,S,Q,b,Z,Q,_,d,Q ,S,m,R,`,b,Q ,_,V,d. ,1,`,X,Q,],e,[,c,d,Q, ,a,`,U,e,^,Q,[,d,V ,c,_,`,S,Q." << endl;
 						cin >> choice_S2;
 					}
 				}
 
-				system("cls");//чистка
+				system("cls");//,i,Z,c,d,\,Q
 			}
 
 			if (choice_S2 == "1")
 			{
 				t = 0; 
-				system("cls");//чистка
+				system("cls");//,i,Z,c,d,\,Q
 			} else if(choice_S2 == "2"){
 
-				//генерируем поля, как было раньше, а раньше было лучше
+				//,T,V,_,V,b,Z,b,e,V,^ ,a,`,],q, ,\,Q,\ ,R,m,],` ,b,Q,_,n,j,V, ,Q ,b,Q,_,n,j,V ,R,m,],` ,],e,i,j,V
 				for (int i = 1; i < 11; i++)
 				{
 					for (int j = 1; j < 11; j++)
@@ -995,7 +995,7 @@ int main()
 					}
 				}
 
-				//вернём забагованую точку
+				//,S,V,b,_,W,^ ,Y,Q,R,Q,T,`,S,Q,_,e,p ,d,`,i,\,e
 				mass_1[9][10] = " ** ";
 				mass_2[2][10] = " ** ";
 
@@ -1004,11 +1004,11 @@ int main()
 		}
 
 		instruction();
-		system("cls");//чистка
+		system("cls");//,i,Z,c,d,\,Q
 
-		//вывод поля
-		//ещё вывод поля
-		cout << "Поле врага :" << endl;
+		//,S,m,S,`,U ,a,`,],q
+		//,V,k,W ,S,m,S,`,U ,a,`,],q
+		cout << ",1,`,],V ,S,b,Q,T,Q :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -1024,7 +1024,7 @@ int main()
 			cout << endl;
 		}
 
-		cout << "Ваше поле :" << endl;
+		cout << ",#,Q,j,V ,a,`,],V :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -1035,7 +1035,7 @@ int main()
 		}
 
 
-		//стреляете
+		//,c,d,b,V,],q,V,d,V
 
 		while ("NULL")
 		{
@@ -1047,28 +1047,28 @@ int main()
 
 			//shooting_pk(mass_2, mass_1);
 
-			//Стреляет бот надо на отдельную функцию
+			//,3,d,b,V,],q,V,d ,R,`,d ,_,Q,U,` ,_,Q ,`,d,U,V,],n,_,e,p ,f,e,_,\,h,Z,p
 
 			shooting_pk(mass_1, mass_2);
 
 			if (yuo_hp == 0)break;
 		}
 
-		string over_text[5] = { "Ммм, да вы просто гений", "Неплохо, но встречали и лучше", "Без комментариев", "Просто в голос", "Вы либо идиот, либо гений, но я склонен к первому" }; 
+		string over_text[5] = { ",.,^,^, ,U,Q ,S,m ,a,b,`,c,d,` ,T,V,_,Z,[", ",/,V,a,],`,g,`, ,_,` ,S,c,d,b,V,i,Q,],Z ,Z ,],e,i,j,V", ",",V,Y ,\,`,^,^,V,_,d,Q,b,Z,V,S", ",1,b,`,c,d,` ,S ,T,`,],`,c", ",#,m ,],Z,R,` ,Z,U,Z,`,d, ,],Z,R,` ,T,V,_,Z,[, ,_,` ,q ,c,\,],`,_,V,_ ,\ ,a,V,b,S,`,^,e" }; 
 
 		if (yuo_hp == 0)
 		{
-			cout << "PK победил";
+			cout << "PK ,a,`,R,V,U,Z,]";
 		}  
 
 		if (pk_hp == 0)
 		{
-			cout << "Адмирал флота " << you_name << " победил";
+			cout << ",!,U,^,Z,b,Q,] ,f,],`,d,Q " << you_name << " ,a,`,R,V,U,Z,]";
 		}
 
 		cout << endl;
 
-		//ачивки
+		//,Q,i,Z,S,\,Z
 		if ((yuo_hp == 20) && (pk_hp == 0))
 		{
 			cout << over_text[0] << endl;
@@ -1097,10 +1097,10 @@ int main()
 	}
 
 	string reset_game = " ";
-	cout << "ещё раз? 1 - да, любое другое - нет" << endl;
+	cout << ",V,k,W ,b,Q,Y? 1 - ,U,Q, ,],p,R,`,V ,U,b,e,T,`,V - ,_,V,d" << endl;
 	cin >> reset_game;
 
-	//рекурсия  
+	//,b,V,\,e,b,c,Z,q  
 	if (reset_game == "1") { main();}
 
 }
