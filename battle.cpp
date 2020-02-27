@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//hp
+//hp 
 int pk_hp = 20;
 int yuo_hp = 20;
 
