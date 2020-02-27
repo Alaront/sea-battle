@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cmath>
 #include <cstring>
 #include <ctime>
@@ -8,7 +8,7 @@ using namespace std;
 
 //hp
 int pk_hp = 20;
-int yuo_hp = 20;   
+int yuo_hp = 20;
 
 int instruction() {
 	cout << "Когда корабли расставлены, игроки по очереди производят «выстрелы», называя \n квадраты по их «координатам»: «К2», «К9» и т. д. вводить следует кириллицей и \n заглавными буквами. Если выстрел пришёлся в  клетку, не занятую ни одним \n кораблём противника, то в точке появиться знак определяющий пробитую точку. \n Право хода переходит к сопернику. Если выстрел пришёлся в клетку, где находится многопалубный  корабль (размером больше чем 1 клетка), то в точке \n появиться знак определяющий ранение коробля.  Стрелявший игрок получает \n право на ещё один выстрел. Игра ведётся до полной победы одного из игроков, то есть, пока не будут потоплены все корабли." << endl;
@@ -27,7 +27,7 @@ int menu()
 	for (int i = 10; i < 110; i += 10)
 	{
 		cout << "\n\n\n\n\n\n\n\n\n" << endl;
-		for (int j = 0; j < i/1.32; j++)
+		for (int j = 0; j < i / 1.32; j++)
 		{
 			cout << "|";
 		}
@@ -51,7 +51,7 @@ int menu()
 	};
 
 	cout << "\n\n\n\n\n\n" << endl;
-	for (int i = 0; i < 9; i++) 
+	for (int i = 0; i < 9; i++)
 	{
 		cout << "\t\t";
 		for (int j = 0; j < 16; j++)
@@ -372,6 +372,11 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 		}
 	}
 
+
+
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
+
 	cout << "Поле врага :" << endl;
 	for (int i = 0; i < 11; i++)
 	{
@@ -389,6 +394,8 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 	}
 
 
+
+	SetConsoleTextAttribute(hStdOut, FOREGROUND_GREEN);
 	cout << "Ваше поле :" << endl;
 	for (int i = 0; i < 11; i++)
 	{
@@ -582,7 +589,7 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			{
 				if ((mass_1[k][t] == " X  ") && (mass_1[k - 1][t] != " [] ") && (mass_1[k + 1][t] != " [] ") && (mass_1[k][t - 1] != " [] ") && (mass_1[k][t + 1] != " [] ") && (mass_1[k - 1][t] != " X  ") && (mass_1[k + 1][t] != " X  ") && (mass_1[k][t - 1] != " X  ") && (mass_1[k][t + 1] != " X  "))
 				{
-					if ((k+1 != 0) && (t != 0))
+					if ((k + 1 != 0) && (t != 0))
 					{
 						mass_1[k + 1][t] = " ** ";
 					}
@@ -821,7 +828,13 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 		system("cls");//чистка
 
 		//ещё вывод поля
+
+
+		HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
+
 		cout << "Поле врага :" << endl;
+
 		for (int i = 0; i < 11; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -837,6 +850,9 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			cout << endl;
 		}
 
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_GREEN);
+
 		cout << "Ваше поле :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
@@ -847,7 +863,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			cout << endl;
 		}
 
-		
+
 
 		cout << axis_x_pk << "  " << axis_y_pk;
 
@@ -871,10 +887,15 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+
+
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+
 	//если будет рекурсия вернуть значения на старте
 	pk_hp = 20;
 	yuo_hp = 20;
-	 
+
 	//меню игры
 	menu();
 
@@ -886,7 +907,8 @@ int main()
 		if ((choice == "1"))
 		{
 			break;
-		}else if (choice == "2")
+		}
+		else if (choice == "2")
 		{
 			cout << "Из-за не хвати времени, сил, денег, еды.... Вообщем проект временно заморожен. Но мы надеемся на перезапуск после 2019 года. Спасибо за понимание";
 			Sleep(5000);
@@ -906,10 +928,10 @@ int main()
 
 		string you_name = " ";
 		cout << "Ваше имя адмирал? ";
-		cin >> you_name; 
+		cin >> you_name;
 
 		//vrag
-		 
+
 		string mass_1[12][12] = {
 			{" || ", " А ",  "  Б ", "  В ", "  Г ", "  Д ", "  Е ", "  Ж ", "  З ", "  И ", "  К "},
 			{"  1 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
@@ -939,14 +961,21 @@ int main()
 			{" 10 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ",  " ~~ ", " ~~ ", " ~~ "," ~~ "}
 		};
 
+
 		//функция на генерацию поля
 		generator(mass_1, mass_2);
 		int choice2 = 0;
-		string choice_S2 = ""; 
+		string choice_S2 = "";
+
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 
 		//а если поле не понравиться 
-		for(int t = 4; t > 2; t++)
+		for (int t = 4; t > 2; t++)
 		{
+
+			SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+
 			cout << "Как вам поле? \n Подходит или нет? \n 1 - Это был настоящий classic,я бы даже сказал pleasantly \n 2 - Давай по новой Миша, ВСЁ ПЛОХО" << endl;
 
 			cin >> choice_S2;
@@ -957,7 +986,8 @@ int main()
 				if ((choice_S2 == "1") || (choice_S2 == "2"))
 				{
 					i = 0;
-				}else{
+				}
+				else {
 					if (i >= 8)
 					{
 						cout << "Ясно, желаю автору закончить 3 класс \n Сударь " << you_name << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
@@ -974,9 +1004,10 @@ int main()
 
 			if (choice_S2 == "1")
 			{
-				t = 0; 
+				t = 0;
 				system("cls");//чистка
-			} else if(choice_S2 == "2"){
+			}
+			else if (choice_S2 == "2") {
 
 				//генерируем поля, как было раньше, а раньше было лучше
 				for (int i = 1; i < 11; i++)
@@ -1000,14 +1031,24 @@ int main()
 				mass_2[2][10] = " ** ";
 
 				generator(mass_1, mass_2);
+
 			}
 		}
 
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+
 		instruction();
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+
 		system("cls");//чистка
 
 		//вывод поля
 		//ещё вывод поля
+
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
 		cout << "Поле врага :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
@@ -1024,6 +1065,8 @@ int main()
 			cout << endl;
 		}
 
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_GREEN);
 		cout << "Ваше поле :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
@@ -1039,6 +1082,8 @@ int main()
 
 		while ("NULL")
 		{
+
+			SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 			shooting(mass_1, you_name, mass_2);
 
 			cout << pk_hp << endl;
@@ -1054,12 +1099,12 @@ int main()
 			if (yuo_hp == 0)break;
 		}
 
-		string over_text[5] = { "Ммм, да вы просто гений", "Неплохо, но встречали и лучше", "Без комментариев", "Просто в голос", "Вы либо идиот, либо гений, но я склонен к первому" }; 
+		string over_text[5] = { "Ммм, да вы просто гений", "Неплохо, но встречали и лучше", "Без комментариев", "Просто в голос", "Вы либо идиот, либо гений, но я склонен к первому" };
 
 		if (yuo_hp == 0)
 		{
 			cout << "PK победил";
-		}  
+		}
 
 		if (pk_hp == 0)
 		{
@@ -1101,6 +1146,11 @@ int main()
 	cin >> reset_game;
 
 	//рекурсия  
-	if (reset_game == "1") { main();}
+	if (reset_game == "1") { main(); }
 
 }
+
+
+
+
+
