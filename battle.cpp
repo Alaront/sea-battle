@@ -6,8 +6,8 @@
 
 using namespace std;
 
-//hp 
-int pk_hp = 20; 
+//hp
+int pk_hp = 20;
 int yuo_hp = 20;
 
 int instruction() {
@@ -415,6 +415,9 @@ int generator(string mass_1[12][12], string mass_2[12][12])
 
 int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 {
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+
 	int axis_x = 0;
 	int axis_y = 0;
 	string axis_y_s = " ";
@@ -427,6 +430,7 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 		if (pk_hp == 0)break;
 
 		//Координаты для стрельбы
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 		cout << "По оси Х: "; cin >> axis_y_s;
 		cout << "По оси Y: "; cin >> axis_x_s;
 
@@ -438,6 +442,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 				r = 0;
 			}
 			else {
+
+				SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 				cout << "Ну что это такое..." << endl;
 				cout << "По оси Х: "; cin >> axis_y_s;
 			}
@@ -451,6 +457,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 				r = 0;
 			}
 			else {
+
+				SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 				cout << "Ну что это такое..." << endl;
 				cout << "По оси Y: "; cin >> axis_x_s;
 			}
@@ -485,6 +493,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 		{
 			if (mass_1[axis_x][axis_y] == " ** " || mass_1[axis_x][axis_y] == " X  " || axis_y == 0 || axis_x == 0)
 			{
+
+				SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 				cout << "Эти координты уже всё..." << endl;
 				cout << "Тупа огонь" << endl;
 				cout << "По оси Х: "; cin >> axis_y_s;
@@ -505,8 +515,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			else {
 				j = 1;
 			}
-
 		}
+
 		if (mass_1[axis_x][axis_y] == " ~~ ")
 		{
 			mass_1[axis_x][axis_y] = " ** ";
@@ -612,6 +622,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			}
 		}
 
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
 		//ещё вывод поля
 		cout << "Поле врага :" << endl;
 		for (int i = 0; i < 11; i++)
@@ -629,6 +641,9 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			cout << endl;
 		}
 
+
+
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_GREEN);
 		cout << "Ваше поле :" << endl;
 		for (int i = 0; i < 11; i++)
 		{
@@ -638,7 +653,7 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 			}
 			cout << endl;
 		}
-
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 		if (pk_hp == 0)
 		{
 			break;
@@ -653,6 +668,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 
 int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 {
+
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	int axis_x_pk = 0;
 	int axis_y_pk = 0;
@@ -865,6 +882,7 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 
 
 
+
 		cout << axis_x_pk << "  " << axis_y_pk;
 
 		axis_x_pk = 0;
@@ -874,6 +892,8 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 		if (yuo_hp == 0)break;
 	}
 	cout << yuo_hp << endl;
+
+
 
 	return 0;
 }
