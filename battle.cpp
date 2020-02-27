@@ -7,7 +7,7 @@
 using namespace std;
 
 //hp 
-int pk_hp = 20;
+int pk_hp = 20; 
 int yuo_hp = 20;
 
 int instruction() {
