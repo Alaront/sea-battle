@@ -3,6 +3,9 @@
 #include <cstring>
 #include <ctime>
 #include <Windows.h>
+#include <fstream>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -11,14 +14,14 @@ int pk_hp = 20;
 int yuo_hp = 20;
 
 int instruction() {
-	cout << "Когда корабли расставлены, игроки по очереди производят «выстрелы», называя \n квадраты по их «координатам»: «К2», «К9» и т. д. вводить следует кириллицей и \n заглавными буквами. Если выстрел пришёлся в  клетку, не занятую ни одним \n кораблём противника, то в точке появиться знак определяющий пробитую точку. \n Право хода переходит к сопернику. Если выстрел пришёлся в клетку, где находится многопалубный  корабль (размером больше чем 1 клетка), то в точке \n появиться знак определяющий ранение коробля.  Стрелявший игрок получает \n право на ещё один выстрел. Игра ведётся до полной победы одного из игроков, то есть, пока не будут потоплены все корабли." << endl;
-
+	cout << "Когда корабли расставлены, игроки по очереди производят «выстрелы», называя \n квадраты по их «координатам»: «К2», «К9» и т. д. вводить следует кириллицей и \n заглавными буквами. Если выстрел пришёлся в клетку, не занятую ни одним \n кораблём противника, то в точке появиться знак определяющий пробитую точку. \n Право хода переходит к сопернику. Если выстрел пришёлся в клетку, где находится многопалубный корабль (размером больше чем 1 клетка), то в точке \n появиться знак определяющий ранение корабля.  Стрелявший игрок получает \n право на ещё один выстрел. Игра ведётся до полной победы одного из игроков, то есть, пока не будут потоплены все корабли. Если захотите выйти из битвы введите в X: 0, Y: 0" << endl;
 	system("pause");
 
 	return  0;
 
 }
 
+void statistics();
 
 int menu()
 {
@@ -31,12 +34,58 @@ int menu()
 		{
 			cout << "|";
 		}
-
+	
 		cout << i << "%" << endl;
 		Sleep(300);//Задержка
 		system("cls");//чистка 
-
+	
 	}
+
+	ifstream fin("admiral\\result.txt"); // (ВВЕЛИ НЕ КОРРЕКТНОЕ ИМЯ ФАЙЛА)
+
+
+	if (!fin.is_open()) // если файл не открыт
+	{
+		cout << "\n\n\n\tУ вас отсутствует файл для игры. Пожалуйста, скачайте проект снова, соблюдая правила." << endl;
+
+		return 1;
+	}
+
+	char buff_file[100];
+	ifstream fin_file("admiral\\result.txt");//Чтение
+	fin_file.getline(buff_file, 100);
+	fin_file.close(); // закрываем файл
+
+
+	if (buff_file[0] != '$') {
+		ofstream fout_file("admiral\\result.txt");//Запись
+		cout << "\n\n\nВпервые в игре?.... а ладно, не важно. Перед началом игры вам надо сделать некий аккаунт, где буду храниться ваши данные, например статистика битв и ваш текущий уровень. Для регистрации вам надо ввести имя, которое будет использоваться в будущих сражения на просторах sea-battle." << endl;
+		string you_name;
+		int name_person_chet = 0;
+		string vibor_name = "";
+		while (name_person_chet == 0) {
+			while (true)
+			{
+				cout << "Ваше имя адмирал(не более двадцати символов) ? ";
+				cin >> you_name;
+
+				if (you_name.size() <= 20)
+				{
+					break;
+				}
+			}
+
+			cout << you_name << ", вы уверены? 1 - да, 2 - нет" << endl;
+			cin >> vibor_name;
+			if (vibor_name == "1") name_person_chet++;
+		}
+
+		fout_file << '$' << you_name <<"$0$0$0$0$0$";
+
+		fout_file.close();
+	}
+
+	system("cls");//чистка 
 
 	string mass_openi[9][17] = {
 		{" - ", " - ",  " - ",  " - ", " - ",  " - ",  " - ",  " - ",  " - ", " - ",  " - ",  " - ", " - ", " - ", " - ", " - "},
@@ -45,8 +94,8 @@ int menu()
 		{" | ", " | ",  " | ",  "   ", " 1.",  "C l ", "A S ", "S I ", "C A ","L ",  "  ",  "  ",  "  ", " | ", " | ", " | "},
 		{" | ", " | ",  " | ",  "   ", "   ",  "   ",  "   ",  "   ",  "   ", "   ",  "   ",  "   ",  "   ", " | ", " | ", " | "},
 		{" | ", " | ",  " | ",  "   ", " 2.",  "C ",  " O ",  " M ",  " P ", " A ",  " N ",  " Y ",  "    ", " | ", " | ", " | "},
-		{" | ", " | ",  " - ",  "   ", "   ",  "   ",  "   ",  "   ",  "   ", "   ",  "   ",  "   ",  "   ", " - ", " | ", " | "},
-		{" | ", " - ",  " - ",  "   ", "   ",  "   ",  "   ",  "   ",  "   ", "   ",  "   ",  "   ",  "   ", " - ", " - ", " | "},
+		{" | ", " | ",  " - ",  "   ", "   ",   "   ",  "   ",  "   ",  "   ", "   ",  "   ",  "   ",  "   ", " - ", " | ", " | "},
+		{" | ", " - ",  " - ",  "   ", " 3.", "S T A ",  "T I ",  "S T I ",  "C  S ", "",  " ",  " ",  " ", " - ", " - ", " | "},
 		{" - ", " - ",  " - ",  " - ", " - ",  " - ",  " - ",  " - ",  " - ", " - ",  " - ",  " - ",  " - ", " - ", " - ", " - "}
 	};
 
@@ -61,6 +110,7 @@ int menu()
 		cout << endl;
 	}
 
+	
 
 	return 0;
 }
@@ -433,6 +483,8 @@ int shooting(string mass_1[12][12], string you_name, string mass_2[12][12])
 		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 		cout << "По оси Х: "; cin >> axis_y_s;
 		cout << "По оси Y: "; cin >> axis_x_s;
+
+		if (axis_y_s == "0" && axis_x_s == "0")return 1;
 
 		//для букв
 		for (int r = 2; r > 1; r++)
@@ -880,11 +932,6 @@ int shooting_pk(string mass_1[12][12], string mass_2[12][12])
 			cout << endl;
 		}
 
-
-
-
-		cout << axis_x_pk << "  " << axis_y_pk;
-
 		axis_x_pk = 0;
 		axis_y_pk = 0;
 
@@ -917,7 +964,102 @@ int main()
 	yuo_hp = 20;
 
 	//меню игры
-	menu();
+	if (menu() != 0) return 0;
+
+	//Читаем
+	char person_file[1000];
+	ifstream fin_person("admiral\\result.txt");
+	fin_person.getline(person_file, 1000);
+	fin_person.close();
+
+	//в переменн
+	string name_person;
+	for (int i = 1; i < 20; i++) {
+		if (person_file[i] != '$') {
+			name_person += person_file[i];
+		}
+		else {
+			i = 20;
+		}
+	}
+
+	//получение данных
+	char person_file2[1000];
+	ifstream fin_person2("admiral\\result.txt");
+	fin_person2.getline(person_file2, 1000);
+	fin_person2.close();
+
+	//в переменн
+	string name_person_none;
+	string kolvo_game_person;
+	string kolvo_vin_person;
+	string kolvo_losing_person;
+	string unfished_games_person;
+	string chet_person;
+
+	int i = 1;
+	for (i = 1; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			name_person_none += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_game_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_vin_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_losing_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			unfished_games_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			chet_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+
+	//Переводы из строки в число
+	int kolvo_game_person_int = 0;
+	istringstream ist(kolvo_game_person);
+	ist >> kolvo_game_person_int;
+
+	int kolvo_vin_person_int = 0;
+	istringstream ist2(kolvo_vin_person);
+	ist2 >> kolvo_vin_person_int;
+
+	int kolvo_losing_person_int = 0;
+	istringstream ist3(kolvo_losing_person);
+	ist3 >> kolvo_losing_person_int;
+	//всё
 
 	string choice = "";
 	cout << "\n\t\t Ваш выбор? ";
@@ -930,8 +1072,12 @@ int main()
 		}
 		else if (choice == "2")
 		{
-			cout << "Из-за не хвати времени, сил, денег, еды.... Вообщем проект временно заморожен. Но мы надеемся на перезапуск после 2019 года. Спасибо за понимание";
+			cout << "Из-за не хвати времени, сил, денег, еды.... Сообщаем, проект временно заморожен. Но мы надеемся на перезапуск после 2019 года. Спасибо за понимание";
 			Sleep(5000);
+			break;
+		}
+		else if (choice == "3")
+		{
 			break;
 		}
 		else {
@@ -944,14 +1090,7 @@ int main()
 
 		system("cls");//чистка
 
-		//Sleep(5000);//Задержка
-
-		string you_name = " ";
-		cout << "Ваше имя адмирал? ";
-		cin >> you_name;
-
 		//vrag
-
 		string mass_1[12][12] = {
 			{" || ", " А ",  "  Б ", "  В ", "  Г ", "  Д ", "  Е ", "  Ж ", "  З ", "  И ", "  К "},
 			{"  1 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
@@ -962,7 +1101,7 @@ int main()
 			{"  6 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  7 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  8 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
-			{"  9 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ** "},
+			{"  9 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{" 10 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ",  " ~~ ", " ~~ ", " ~~ "," ~~ "}
 		};
 
@@ -970,7 +1109,7 @@ int main()
 		string mass_2[12][12] = {
 			{" || ", " А ",  "  Б ", "  В ", "  Г ", "  Д ", "  Е ", "  Ж ", "  З ", "  И ", "  К "},
 			{"  1 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
-			{"  2 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ** "},
+			{"  2 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  3 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  4 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
 			{"  5 ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ ", " ~~ "},
@@ -1010,11 +1149,11 @@ int main()
 				else {
 					if (i >= 8)
 					{
-						cout << "Ясно, желаю автору закончить 3 класс \n Сударь " << you_name << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
+						cout << "Ясно, желаю автору закончить 3 класс \n Сударь " << name_person << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
 						cin >> choice_S2;
 					}
 					else {
-						cout << "Сударь " << you_name << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
+						cout << "Сударь " << name_person << ", такого варианта выбора нет. Пожалуйста, подумайте снова." << endl;
 						cin >> choice_S2;
 					}
 				}
@@ -1046,9 +1185,6 @@ int main()
 					}
 				}
 
-				//вернём забагованую точку
-				mass_1[9][10] = " ** ";
-				mass_2[2][10] = " ** ";
 
 				generator(mass_1, mass_2);
 
@@ -1059,6 +1195,12 @@ int main()
 		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 
 		instruction();
+		kolvo_game_person_int++;
+
+		//запись
+		ofstream fout_file3("admiral\\result.txt");//Запись
+		fout_file3 << '$' << name_person <<'$'<< kolvo_game_person_int << '$' << kolvo_vin_person << '$' << kolvo_losing_person << '$' << unfished_games_person << '$' << chet_person << '$';
+		fout_file3.close();
 
 		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 
@@ -1099,40 +1241,54 @@ int main()
 
 
 		//стреляете
-
+		
 		while ("NULL")
 		{
 
 			SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
-			shooting(mass_1, you_name, mass_2);
-
-			cout << pk_hp << endl;
+		
+			if (shooting(mass_1, name_person, mass_2) == 1) {
+				cout << "Выход..." << endl;
+				break;
+			}
 
 			if (pk_hp == 0)break;
 
-			//shooting_pk(mass_2, mass_1);
-
 			//Стреляет бот надо на отдельную функцию
-
 			shooting_pk(mass_1, mass_2);
 
 			if (yuo_hp == 0)break;
 		}
 
+		yuo_hp == 0;
 		string over_text[5] = { "Ммм, да вы просто гений", "Неплохо, но встречали и лучше", "Без комментариев", "Просто в голос", "Вы либо идиот, либо гений, но я склонен к первому" };
 
 		if (yuo_hp == 0)
 		{
+			SetConsoleTextAttribute(hStdOut, FOREGROUND_RED);
 			cout << "PK победил";
+			kolvo_losing_person_int++;
+
+			//запись
+			ofstream fout_file4("admiral\\result.txt");//Запись
+			fout_file4 << '$' << name_person << '$' << kolvo_game_person_int << '$' << kolvo_vin_person_int << '$' << kolvo_losing_person_int << '$' << unfished_games_person << '$' << chet_person << '$';
+			fout_file4.close();
 		}
 
 		if (pk_hp == 0)
 		{
-			cout << "Адмирал флота " << you_name << " победил";
+			SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
+			cout << "Адмирал флота " << name_person << " победил";
+			kolvo_vin_person_int++;
+
+			//запись
+			ofstream fout_file5("admiral\\result.txt");//Запись
+			fout_file5 << '$' << name_person << '$' << kolvo_game_person_int << '$' << kolvo_vin_person_int << '$' << kolvo_losing_person << '$' << unfished_games_person << '$' << chet_person << '$';
+			fout_file5.close();
 		}
 
 		cout << endl;
-
+		SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 		//ачивки
 		if ((yuo_hp == 20) && (pk_hp == 0))
 		{
@@ -1159,15 +1315,133 @@ int main()
 			cout << over_text[4] << endl;
 		}
 
+	}else if(choice == "3"){
+		statistics();
 	}
 
+	SetConsoleTextAttribute(hStdOut, FOREGROUND_INTENSITY);
 	string reset_game = " ";
 	cout << "ещё раз? 1 - да, любое другое - нет" << endl;
 	cin >> reset_game;
 
 	//рекурсия  
-	if (reset_game == "1") { main(); }
+	if (reset_game == "1") {
+		main(); 
+	}
+}
 
+void statistics() {
+	//Читаем
+	char person_file[1000];
+	ifstream fin_person("admiral\\result.txt");
+	fin_person.getline(person_file, 1000);
+	fin_person.close();
+
+	cout << person_file << endl;
+
+
+	//в переменн
+	string name_person;
+	string kolvo_game_person;
+	string kolvo_vin_person;
+	string kolvo_losing_person;
+	string unfished_games_person;
+	string chet_person;
+	int lvl_person = 0;
+
+	int i = 1;
+	for (i = 1; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			name_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_game_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_vin_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			kolvo_losing_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			unfished_games_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+	for (i++; i < 1000; i++) {
+		if (person_file[i] != '$') {
+			chet_person += person_file[i];
+		}
+		else {
+			break;
+		}
+	}
+
+	//Переводы из строки в число
+	int kolvo_game_person_int = 0;
+	istringstream ist(kolvo_game_person);
+	ist >> kolvo_game_person_int;
+
+	int kolvo_vin_person_int = 0;
+	istringstream ist2(kolvo_vin_person);
+	ist2 >> kolvo_vin_person_int;
+
+	int kolvo_losing_person_int = 0;
+	istringstream ist3(kolvo_losing_person);
+	ist3 >> kolvo_losing_person_int;
+
+	int unfished_games_person_int = 0;
+	istringstream ist4(unfished_games_person);
+	ist4 >> unfished_games_person;
+	unfished_games_person_int = kolvo_game_person_int - (kolvo_vin_person_int + kolvo_losing_person_int);
+
+	int chet_person_int = 0;
+	istringstream ist5(chet_person);
+	ist5 >> chet_person_int;
+	chet_person_int = (kolvo_vin_person_int - kolvo_losing_person_int) * 100;
+	//всё
+
+	lvl_person = (chet_person_int - unfished_games_person_int * 2) / 100;
+
+	system("cls");//чистка 
+	cout << "\n\t\t\t\t Имя: \t" << name_person << "\n\t\t -----------------------------------------" << endl;
+	cout << "\t\t Количество игр: \t\t\t" << kolvo_game_person << endl;
+	cout << "\t\t Количество побед: \t\t\t" << kolvo_vin_person << endl;
+	cout << "\t\t Количество проигрышей: \t\t" << kolvo_losing_person << endl;
+	cout << "\t\t Количество не законченных игр: \t" << unfished_games_person_int << endl;
+	cout << "\t\t Общий счёт: \t\t\t\t" << chet_person_int << endl;
+	cout << "\n\t\t Уровень: \t\t\t\t" << lvl_person << endl;
+
+	ofstream fout_file6("admiral\\result.txt");//Запись
+	fout_file6 << '$' << name_person << '$' << kolvo_game_person << '$' << kolvo_vin_person << '$' << kolvo_losing_person << '$' << unfished_games_person_int << '$' << chet_person_int << '$';
+	fout_file6.close();
+
+	string reset_game = " ";
+	cout << "Назад?" << endl;
+	cin >> reset_game;
+	main();
 }
 
 
